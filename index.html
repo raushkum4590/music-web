@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>music</title>
     <style>
-         @media screen and (max-width: 532px) {
-         }
-        body {
+      body {
             font-family: Arial, sans-serif;
             background-color: #121212;
             
             background-image: url("dj.jpg");
            
             background-size: cover;
-            background-position:1050rem;
+            background-position:1080rem;
             
             color: #fff;
             margin: 0;
@@ -82,7 +80,6 @@
             width: 70px;
             text-transform: capitalize;
         }
-    
     </style>
 </head>
 <body>
@@ -91,21 +88,26 @@
     <header>
         <h1>potify</h1>
     </header>
-    <nav>
+    
+   <nav>
         <ul>
             <li>Home</li>
             <li>Search</li>
+            <li>
+                <input type="text" placeholder="Search..." id="searchBox"> <!-- Adding the search input -->
+            </li>
             <li>Your Library</li>
         </ul>
-    </nav>
+        </nav>
+   
     <div class="container">
         <div class="song-list">
             <div class="song-item">
-                <img src="hello.jpeg" alt="Song Cover"> <!-- Corrected image source -->
-                <h3>Safri Song</h3> <!-- Enter the actual song title -->
+                <img src="chr.png" alt="Song Cover"> <!-- Corrected image source -->
+                <h3>christmas Song</h3> <!-- Enter the actual song title -->
             
             <audio controls>
-                <source src="gr.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+                <source src="chr.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
             </audio>
             </div>
             <div class="song-item">
@@ -198,6 +200,107 @@
                 <source src="u.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
             </audio>
             </div>
+           
+            <div class="song-item">
+                <img src="chri.png" alt="Album Cover">
+                <h3>christmas</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="chri.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="kr.png" alt="Album Cover">
+                <h3>karu tera</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="kr.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="do.png" alt="Album Cover">
+                <h3>dost hai tu mera</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="do.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="me.png" alt="Album Cover">
+                <h3>mere jeevan</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="me.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="i.png" alt="Album Cover">
+                <h3>jesus i need</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="i.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="dh.png" alt="Album Cover">
+                <h3>dhynaead ke sath</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="dh.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="ki.png" alt="Album Cover">
+                <h3>king of king</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="ki.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="te.png" alt="Album Cover">
+                <h3>teri stuti</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="te.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="nac.png" alt="Album Cover">
+                <h3>nachhunga</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="nac.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="jai.png" alt="Album Cover">
+                <h3>jai jai </h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="jai.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            <div class="song-item">
+                <img src="na.png" alt="Album Cover">
+                <h3>na daurunga</h3> <!-- Enter the actual song title -->
+            
+
+            <audio controls>
+                <source src="na.mp3" type="audio/mpeg"> <!-- Updated audio source and type -->
+            </audio>
+            </div>
+            
             
             
             
@@ -206,5 +309,65 @@
 
         </div>
     </div>
+    <script>
+        // Get all audio elements
+        const audioElements = document.querySelectorAll('audio');
+    
+        // Function to pause all audio elements except the one being played
+        function pauseOtherSongs(currentAudio) {
+            audioElements.forEach(audio => {
+                if (audio !== currentAudio) {
+                    audio.pause();
+                }
+            });
+        }
+    
+        // Add event listeners to each audio element
+        audioElements.forEach(audio => {
+            audio.addEventListener('play', function() {
+                pauseOtherSongs(this);
+            });
+        });
+          // Get all audio elements
+  
+
+// Function to play the next song
+function playNextSong(currentAudio) {
+    const currentIndex = Array.from(audioElements).indexOf(currentAudio);
+    const nextIndex = (currentIndex + 1) % audioElements.length;
+    const nextAudio = audioElements[nextIndex];
+    
+    // Check if there is a next audio element
+    if (nextAudio) {
+        nextAudio.play();
+    }
+}
+
+// Add 'ended' event listeners to each audio element
+audioElements.forEach(audio => {
+    audio.addEventListener('ended', function() {
+        playNextSong(this);
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+        const searchBox = document.getElementById('searchBox');
+        const songItems = document.querySelectorAll('.song-item');
+
+        searchBox.addEventListener('input', function() {
+            const searchTerm = searchBox.value.toLowerCase();
+
+            songItems.forEach(song => {
+                const songTitle = song.querySelector('h3').textContent.toLowerCase();
+                if (songTitle.includes(searchTerm)) {
+                    song.style.display = 'flex'; // Show matching songs
+                } else {
+                    song.style.display = 'none'; // Hide non-matching songs
+                }
+            });
+        });
+    });
+    </script>
+    
+    
 </body>
 </html>
