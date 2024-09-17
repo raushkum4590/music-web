@@ -310,6 +310,21 @@
         </div>
     </div>
     <script>
+
+
+
+
+         window.watsonAssistantChatOptions = {
+     integrationID: "0951a2e9-0796-4d17-9ba1-2d1732d236ef", // The ID of this integration.
+       region: "au-syd", // The region your integration is hosted in.
+       serviceInstanceID: "4ebe67bf-395a-45ee-8266-eace8dda5f8c", // The ID of your service instance.
+       onLoad: async (instance) => { await instance.render(); }
+     };
+      setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+        });
         // Get all audio elements
         const audioElements = document.querySelectorAll('audio');
     
